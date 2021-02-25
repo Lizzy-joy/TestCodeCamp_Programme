@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "194cea4f-f582-402a-a5e7-354a4f47c0cf",
+		"name": "ALOLA_WEBINAR_ON_API_TESTING",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "Create a user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code should be 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"Status code name has string called Created\", function () {\r",
+											"    pm.response.to.have.status(\"Created\");\r",
+											"});\r",
+											"pm.test(\"Response time is more than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n    \"name\": \"morpheus\",\r\n\"job\": \"leader\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/users",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create user login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code should be 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Successful POST created is 200\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is more than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"eve.holt@reqres.in\",\r\n\"password\": \"cityslicka\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/login",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"login"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Create list users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code should be  200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Status code name has string called Ok\", function () {\r",
+											"    pm.response.to.have.status(\"OK\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is more than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{api/users?page=2}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/users?page=2",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a single user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code should be  200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Status code name has string called Ok\", function () {\r",
+											"    pm.response.to.have.status(\"OK\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is more than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "}\r\n\"api/users/2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/users/2",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "Delete a user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {\r",
+											"    pm.response.to.have.status(204);\r",
+											"   }); \r",
+											"pm.test(\"Status code name has No Content string\", function () {\r",
+											"    pm.response.to.have.status(\"No Content\");\r",
+											"    });\r",
+											"pm.test(\"Response time is more than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.above(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}api/users/2",
+									"host": [
+										"{{BaseUrl}}api"
+									],
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
