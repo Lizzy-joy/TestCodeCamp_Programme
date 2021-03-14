@@ -69,11 +69,11 @@ public class Facebook_LogInOut {
         driver.quit();
     }
 
-    public static void main(String args[]) throws InterruptedException {
-        Facebook_LogInOut test = new Facebook_LogInOut();
-        test.setUp();
-        test.loginTest();
-        test.signOut();
-        test.tearDown();
-    }
+//    public static void main(String args[]) throws InterruptedException {
+//        Facebook_LogInOut test = new Facebook_LogInOut();
+//        test.setUp();
+//        test.loginTest();
+//        test.signOut();
+//        test.tearDown();
+//    }
 }
