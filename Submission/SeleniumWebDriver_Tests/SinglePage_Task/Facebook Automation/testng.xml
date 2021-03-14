@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/USER/Desktop/TestCodeCamp_Programme/Submission/SeleniumWebDriver_Tests/SinglePage_Task/Facebook Automation">
+            <classes>
+                <class name="Facebook.Facebook_LogInOut">
+                    <methods>
+                        <include name="loginTest"/>
+                        <include name="signOut"/>
+                    </methods>
+                </class>
+            </classes>
+    </test>
+</suite>
